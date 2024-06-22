@@ -1,0 +1,9 @@
+#unoButton {
+    -fx-background-image: url('../images/uno-button.png');
+}
+
+#deckButton {
+    -fx-background-image: url('../images/uno-cards/deck_of_cards.png');
+    -fx-background-insets: 20, 20;
+    -fx-background-size: 120px 180px;
+}
