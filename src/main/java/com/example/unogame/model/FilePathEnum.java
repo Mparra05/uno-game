@@ -1,11 +1,11 @@
-package com.example.unogame.model.url_cards;
+package com.example.unogame.model;
 
 /**
  * Represents the file paths of the images used in the Uno Game
  */
 public enum FilePathEnum {
 
-    UNOICON("images/uno-icon.png"),
+    UNO_ICON("images/uno-icon.png"),
     BACKGROUND_WELCOME_UNO("images/background-welcome-view.png"),
     BACKGROUND_GAME_UNO("images/background-game-view.png"),
     CARD_UNO("images/uno-cards/card_uno.png"),
@@ -66,7 +66,7 @@ public enum FilePathEnum {
     RED_9("images/uno-cards/9_red.png");
 
     private final String filePath;
-    private static final String PATH = "/org/example/unogame/";
+    private static final String PATH = "/com/example/unogame/";
 
     /**
      * Constructor of the enum file paths
@@ -78,7 +78,7 @@ public enum FilePathEnum {
     }
 
     /**
-     * Gets the full file path of an image
+     * Get the full file path of an image
      *
      * @return filePath
      */

@@ -1,6 +1,6 @@
 package com.example.unogame.view;
 
-import com.example.unogame.controller.WelcomeController;
+import com.example.unogame.model.FilePathEnum;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -37,7 +37,7 @@ public class WelcomeStage extends Stage {
         // Sets the stage title
         setTitle("Uno Game");
         // Sets the stage icon
-        getIcons().add(new Image(String.valueOf(getClass().getResource("/com/example/unogame/images/uno-icon.png"))));
+        getIcons().add(new Image(String.valueOf(getClass().getResource(FilePathEnum.UNO_ICON.getFilePath()))));
         // Disables the stage resizing
         setResizable(false);
         // Sets the stage scene

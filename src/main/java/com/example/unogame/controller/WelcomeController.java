@@ -14,13 +14,13 @@ public class WelcomeController {
     private Button buttonPlay;
 
     /**
-     * Sets the action event to the button play
+     * Set the action event of the play button
      *
-     * @param event
+     * @param actionEvent
      * @throws IOException if throws an error while getting the GameStage instance
      */
     @FXML
-    public void onHandleButtonPlay(ActionEvent event) throws IOException {
+    public void onHandleButtonPlay(ActionEvent actionEvent) throws IOException {
         GameStage.getInstance();
         WelcomeStage.deleteInstance();
     }

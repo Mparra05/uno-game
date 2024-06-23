@@ -1,5 +1,7 @@
 #unoButton {
     -fx-background-image: url('../images/uno-button.png');
+    -fx-background-insets: 32, 32;
+    -fx-background-size: 110px 110px;
 }
 
 #deckButton {
