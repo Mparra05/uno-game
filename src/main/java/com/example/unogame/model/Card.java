@@ -1,13 +1,15 @@
 package com.example.unogame.model;
 
+import com.example.unogame.model.interfaces.ICard;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 /**
- * Represents the instance of a card
+ * Represents a card of the uno game
  */
-public class Card {
+public class Card implements ICard {
 
+    private final String cardId;
     private final Image cardImage;
     private final ImageView cardImageView;
     private final String cardValue;
@@ -21,10 +23,15 @@ public class Card {
      * @param cardColor color of the card
      */
     public Card(Image cardImage, String cardValue, String cardColor) {
+        this.cardId = cardValue + "_" + cardColor;
         this.cardImage = cardImage;
         this.cardImageView = new ImageView(cardImage);
         this.cardValue = cardValue;
         this.cardColor = cardColor;
+    }
+
+    public String getCardId() {
+        return this.cardId;
     }
 
     /**
@@ -32,6 +39,7 @@ public class Card {
      *
      * @return cardImage
      */
+    @Override
     public Image getCardImage() {
         return this.cardImage;
     }
@@ -41,6 +49,7 @@ public class Card {
      *
      * @return cardImageView
      */
+    @Override
     public ImageView getCardImageView() {
         return this.cardImageView;
     }
@@ -50,6 +59,7 @@ public class Card {
      *
      * @return cardValue
      */
+    @Override
     public String getCardValue() {
         return this.cardValue;
     }
@@ -59,6 +69,7 @@ public class Card {
      *
      * @return cardColor
      */
+    @Override
     public String getCardColor() {
         return this.cardColor;
     }

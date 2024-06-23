@@ -1,40 +1,144 @@
 package com.example.unogame.model;
 
+import com.example.unogame.model.interfaces.IDeck;
 import javafx.scene.image.Image;
-
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Deck {
+/**
+ * Represents the deck of the uno game
+ */
+public class Deck implements IDeck {
 
     private ArrayList<Card> cardsDeck;
 
+    /**
+     * Constructor of the deck instance
+     */
     public Deck() {
         this.cardsDeck = new ArrayList<>();
+        setCardsDeck();
     }
 
+    /**
+     * Set the cards deck of the uno game
+     */
+    @Override
     public void setCardsDeck() {
+
         for (FilePathEnum cardPath : FilePathEnum.values()) {
-            if (cardPath.name().startsWith("GREEN_") ||
-                    cardPath.name().startsWith("YELLOW_") ||
-                    cardPath.name().startsWith("BLUE_") ||
-                    cardPath.name().startsWith("RED_") ||
-                    cardPath.name().startsWith("SKIP_") ||
-                    cardPath.name().startsWith("RESERVE_") ||
-                    cardPath.name().startsWith("TWO_WILD_DRAW_") ||
-                    cardPath.name().equals("FOUR_WILD_DRAW") ||
-                    cardPath.name().equals("WILD")) {
-                /*Card card = new Card(new Image(String.valueOf(getClass().getResource(cardPath.getFilePath()))), getCardValue(cardPath.name()), getCardColor(cardPath.name()));
+
+            if (cardPath.name().startsWith("RED") || cardPath.name().startsWith("BLUE") ||
+                    cardPath.name().startsWith("YELLOW") || cardPath.name().startsWith("GREEN") ||
+                    cardPath.name().equals("WILD") || cardPath.name().startsWith("TWO_WILD_DRAW") ||
+                    cardPath.name().equals("FOUR_WILD_DRAW") || cardPath.name().startsWith("SKIP") ||
+                    cardPath.name().startsWith("RESERVE")) {
+
+                Card card = new Card(new Image(String.valueOf(getClass().getResource(cardPath.getFilePath()))),
+                        getCardValue(cardPath.name()), getCardColor(cardPath.name()));
                 cardsDeck.add(card);
-                // Print each card
-                System.out.println(card.getCardValue() + " " + card.getCardColor());*/
+
             }
+
         }
+
         Collections.shuffle(cardsDeck);
+
     }
 
-    //public String getCardValue(String cardName) {}
+    /**
+     * Get the card value
+     *
+     * @param cardName
+     * @return cardValue
+     */
+    @Override
+    public String getCardValue(String cardName) {
 
-    //public String getCardColor(String cardName) {}
+        if (cardName.endsWith("0")) {
+            return "0";
+        } else if (cardName.endsWith("1")) {
+            return "1";
+        } else if (cardName.endsWith("2")) {
+            return "2";
+        } else if (cardName.endsWith("3")) {
+            return "3";
+        } else if (cardName.endsWith("4")) {
+            return "4";
+        } else if (cardName.endsWith("5")) {
+            return "5";
+        } else if (cardName.endsWith("6")) {
+            return "6";
+        } else if (cardName.endsWith("7")) {
+            return "7";
+        } else if (cardName.endsWith("8")) {
+            return "8";
+        } else if (cardName.endsWith("9")) {
+            return "9";
+        } else if (cardName.startsWith("RESERVE")) {
+            return "RESERVE";
+        } else if (cardName.startsWith("SKIP")) {
+            return "SKIP";
+        } else if (cardName.startsWith("FOUR_WILD_DRAW")) {
+            return "FOUR_WILD_DRAW";
+        } else if (cardName.startsWith("TWO_WILD_DRAW")) {
+            return "TWO_WILD_DRAW";
+        } else if (cardName.startsWith("WILD")) {
+            return "WILD";
+        }else {
+            return "NONE";
+        }
+
+    }
+
+    /**
+     * Get the card color
+     *
+     * @param cardName
+     * @return cardColor
+     */
+    @Override
+    public String getCardColor(String cardName) {
+
+        if (cardName.contains("RED")) {
+            return "RED";
+        } else if (cardName.contains("BLUE")) {
+            return "BLUE";
+        }
+        else if (cardName.contains("YELLOW")) {
+            return "YELLOW";
+        }
+        else if (cardName.contains("GREEN")) {
+            return "GREEN";
+        } else if(cardName.contains("WILD")) {
+            return "BLACK";
+        }else {
+            return "NONE";
+        }
+
+    }
+
+    @Override
+    public ArrayList<Card> getCardsDeck() {
+        return this.cardsDeck;
+    }
+
+    @Override
+    public void showDeckCards() {
+
+        for (Card card : this.cardsDeck) {
+            System.out.println(card.getCardValue() + " " + card.getCardColor());
+        }
+
+        System.out.println(this.cardsDeck.size());
+
+    }
+
+    @Override
+    public void removeCard(String cardId) {
+
+        cardsDeck.removeIf(card -> card.getCardId().equals(cardId));
+
+    }
 
 }
