@@ -7,5 +7,5 @@
 #deckButton {
     -fx-background-image: url('../images/uno-cards/deck_of_cards.png');
     -fx-background-insets: 20, 20;
-    -fx-background-size: 120px 180px;
+    -fx-background-size: 110px 165px;
 }

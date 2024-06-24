@@ -36,7 +36,43 @@ public class Deck implements IDeck {
 
                 Card card = new Card(new Image(String.valueOf(getClass().getResource(cardPath.getFilePath()))),
                         getCardValue(cardPath.name()), getCardColor(cardPath.name()));
-                cardsDeck.add(card);
+
+
+
+                if (!(getCardValue(cardPath.name()).equals("0")) &&
+                        !(getCardColor(cardPath.name()).equals("BLACK"))){
+
+                    card.duplicateCardId("A");
+                    cardsDeck.add(card);
+
+                    Card card2 = new Card(new Image(String.valueOf(getClass().getResource(cardPath.getFilePath()))),
+                            getCardValue(cardPath.name()), getCardColor(cardPath.name()) + "_B");
+                    cardsDeck.add(card2);
+
+                } else if (getCardColor(cardPath.name()).equals("BLACK")) {
+
+                    card.duplicateCardId("A");
+                    cardsDeck.add(card);
+
+                    Card card2 = new Card(new Image(String.valueOf(getClass().getResource(cardPath.getFilePath()))),
+                            getCardValue(cardPath.name()), getCardColor(cardPath.name()) + "_B");
+                    cardsDeck.add(card2);
+
+                    Card card3 = new Card(new Image(String.valueOf(getClass().getResource(cardPath.getFilePath()))),
+                            getCardValue(cardPath.name()), getCardColor(cardPath.name()) + "_C");
+                    cardsDeck.add(card3);
+
+                    Card card4 = new Card(new Image(String.valueOf(getClass().getResource(cardPath.getFilePath()))),
+                            getCardValue(cardPath.name()), getCardColor(cardPath.name()) + "_D");
+                    cardsDeck.add(card4);
+
+                } else {
+
+                    cardsDeck.add(card);
+                    /*System.out.println(card.getCardId() + ": " +card.getCardValue()
+                            + " " + card.getCardColor());*/
+
+                }
 
             }
 
@@ -127,7 +163,9 @@ public class Deck implements IDeck {
     public void showDeckCards() {
 
         for (Card card : this.cardsDeck) {
-            System.out.println(card.getCardValue() + " " + card.getCardColor());
+            System.out.println(card.getCardId() + " - Value: " + card.getCardValue()
+                    + " - Value:" + card.getCardColor());
+            System.out.println(card.getCardId());
         }
 
         System.out.println(this.cardsDeck.size());

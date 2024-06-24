@@ -7,17 +7,18 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="470.0" prefWidth="750.0" stylesheets="@style/GameStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.unogame.controller.GameController">
    <children>
-      <ImageView fitHeight="470.0" fitWidth="750.0" opacity="0.9" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="470.0" fitWidth="750.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/background-game-view.png" />
          </image>
       </ImageView>
-      <Button fx:id="deckButton" alignment="CENTER" layoutX="41.0" layoutY="99.0" mnemonicParsing="false" onAction="#onHandleButtonDeck" prefHeight="180.0" prefWidth="120.0" rotate="-20.0" textAlignment="CENTER" />
-      <GridPane fx:id="playerCards" hgap="15.0" layoutX="120.0" layoutY="306.0" prefHeight="150.0">
+      <Button fx:id="deckButton" alignment="CENTER" layoutX="41.0" layoutY="99.0" mnemonicParsing="false" onAction="#onHandleButtonDeck" prefHeight="165.0" prefWidth="110.0" rotate="-20.0" textAlignment="CENTER" />
+      <GridPane fx:id="gridPlayerCards" hgap="10.0" layoutX="130.0" layoutY="336.0" prefHeight="120.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="90.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="90.0" />
@@ -29,7 +30,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
       </GridPane>
-      <GridPane fx:id="botCards" hgap="15.0" layoutX="120.0" layoutY="-36.0" prefHeight="100.0">
+      <GridPane fx:id="gridBotCards" hgap="10.0" layoutX="130.0" layoutY="-36.0" prefHeight="100.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="90.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="90.0" />
@@ -41,10 +42,15 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
       </GridPane>
-      <Button fx:id="unoButton" alignment="TOP_LEFT" contentDisplay="TOP" disable="true" layoutX="600.0" layoutY="300.0" mnemonicParsing="false" onAction="#onHandleButtonUno" prefHeight="110.0" prefWidth="110.0">
+      <Button fx:id="unoButton" alignment="TOP_LEFT" contentDisplay="TOP" disable="true" layoutX="620.0" layoutY="286.0" mnemonicParsing="false" onAction="#onHandleButtonUno" prefHeight="110.0" prefWidth="110.0">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
       </Button>
+      <Pane layoutX="325.0" layoutY="138.0" prefHeight="140.0" prefWidth="100.0">
+         <children>
+            <ImageView fx:id="lastPlayedCard" fitHeight="120.0" fitWidth="80.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

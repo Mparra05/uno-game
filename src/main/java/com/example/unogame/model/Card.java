@@ -9,7 +9,7 @@ import javafx.scene.image.ImageView;
  */
 public class Card implements ICard {
 
-    private final String cardId;
+    private String cardId;
     private final Image cardImage;
     private final ImageView cardImageView;
     private final String cardValue;
@@ -72,6 +72,11 @@ public class Card implements ICard {
     @Override
     public String getCardColor() {
         return this.cardColor;
+    }
+
+    @Override
+    public void duplicateCardId(String duplicated) {
+        this.cardId += "_" + duplicated;
     }
 
 }

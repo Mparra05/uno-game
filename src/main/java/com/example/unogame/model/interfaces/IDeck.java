@@ -10,6 +10,6 @@ public interface IDeck {
     String getCardColor(String cardName);
     ArrayList<Card> getCardsDeck();
     void showDeckCards();
-    void removeCard(String cardIndex);
+    void removeCard(String cardId);
 
 }

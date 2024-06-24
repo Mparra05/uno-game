@@ -10,5 +10,6 @@ public interface ICard {
     ImageView getCardImageView();
     String getCardValue();
     String getCardColor();
+    void duplicateCardId(String duplicated);
 
 }

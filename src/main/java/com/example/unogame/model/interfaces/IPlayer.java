@@ -6,9 +6,12 @@ import java.util.ArrayList;
 
 public interface IPlayer {
 
-    void setPlayerCards(ArrayList<Card> playerCards);
+    void setDefaultPlayerCards(ArrayList<Card> playerCards);
+    void addCard(Card card);
     ArrayList<Card> getPlayerCards();
     String getPlayerType();
     boolean canClickUno(int playerCards, int botCards);
+    void printCards();
+    boolean playCard(String idPlayedCard, String lastPlayedCardValue, String lastPlayedCardColor);
 
 }
